@@ -1,5 +1,5 @@
 window.onload = () => {
-
+    /*
     // Elejir Marca
     
     alert ("Escoja un Número")
@@ -50,19 +50,37 @@ window.onload = () => {
     let completado = tuPedido(marca, canalesDvr, camara);
     
     alert ("Tu pedido es"+ " " + "\n"+ completado);
+
+    */
     
     
     // Segunda Entrega (Agregando consignas)
     
+    
+    
     // Agragando objetos
     
-    const camaraHik = {
-        nombre: "Camara Hikvision",
-        tipo: "Bullet",
-        material: "Plastico",
-        precio: 5500,
-        resolucion: "HD",
-        disponible: true
-    }
-    
+    function nuestrosProductos (nombre,tipo,material,resolucion, precion, disponible){
+    this.nombre=nombre;
+    this.tipo=tipo;
+    this.material=material;
+    this.resolucion=resolucion;
+    this.precio=precio;
+    this.disponible= true;
+}
+    const productos = [
+        {id: 1, nombre:"Camara Hikvision",tipo: "Bullet",material: "Plastico",precio: 5500,resolucion: "HD",disponible: true},
+        {id: 2, nombre:"Camara Hikvision",tipo: "Bullet",material: "Metal",precio: 7500,resolucion: "HD",disponible: true},
+        {id: 3, nombre:"Camara Hikvision",tipo: "Domo",material: "Plastico",precio: 6500,resolucion: "HD",disponible: true},
+        {id: 4, nombre:"Camara Hikvision",tipo: "Domo",material: "Metal",precio: 7500,resolucion: "HD",disponible: true},
+       
+    ]   
+
+    // Arrays
+
+    const carrito = [];
+
+    let sumarproducto = prompt("Agregar Producto");
+
+
 }
