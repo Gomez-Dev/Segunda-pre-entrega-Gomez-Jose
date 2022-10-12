@@ -1,86 +1,59 @@
 window.onload = () => {
-    /*
-    // Elejir Marca
     
-    alert ("Escoja un Número")
-    let marca = +(prompt("¿1-hikvision 2-dahua?"));
-    
-    if (marca==1){
-        alert("Elegiste hikvision")
-    }   else if (marca==2){
-        alert("Elegite Dahua")
-    }
-    
-    let canalesDvr = +(prompt("4-Canales 8-Canales 16-Canales"));
-    
-    //Cantodad de canales (uso de Switch)
-    
-    switch (canalesDvr) {
-        case 4: {
-            alert("El DVR es de 4 canales");
-            break;
-        }
-        case 8: {
-            alert("El DVR es de 8 canales");
-            break;
-        }
-        case 16: {
-            alert("El DVR es de 16 canales");
-            break;
-        }
-        default :
-            alert ("La opcion no es correcta")
-    }
-    
-    //Mostrando Pedido
-    
-    let camara = +(prompt("¿Cuantas Camaras?"));
-    
-    
-        alert ("Elegiste" +" "+ camara +" "+ "camaras");
-    
-        function tuPedido(a,b,c){
-            let mensaje = "Marca: " + a + "\n"; 
-            mensaje+="DVR: " + b + " canales" + "\n"; 
-            mensaje+="Camaras: " + c + "\n"; 
-        
-            return mensaje;
-        }
-    
-    let completado = tuPedido(marca, canalesDvr, camara);
-    
-    alert ("Tu pedido es"+ " " + "\n"+ completado);
+const camara = [
+    {id: 1, nombre:"Camara h1",tipo: "Bullet",precio: 5500,resolucion: "HD"},
+    {id: 2, nombre:"Camara h2",tipo: "Bullet",precio: 7500,resolucion: "Full-HD"},
+    {id: 3, nombre:"Camara h3",tipo: "Domo",precio: 6500,resolucion: "HD"},
+    {id: 4, nombre:"Camara h4",tipo: "Domo",precio: 7500,resolucion: "Full-HD"}, 
+];   
 
-    */
-    
-    
-    // Segunda Entrega (Agregando consignas)
-    
-    
-    
-    // Agragando objetos
-    
-    function nuestrosProductos (nombre,tipo,material,resolucion, precion, disponible){
+function Productos(id,nombre,tipo,precio,resolucion,){
+    this.id=id;
     this.nombre=nombre;
     this.tipo=tipo;
-    this.material=material;
-    this.resolucion=resolucion;
     this.precio=precio;
-    this.disponible= true;
+    this.resolucion=resolucion;
+} 
+
+
+console.log(camara);
+
+const nuevaCamara5 = new Productos(5,"Camara h5","Domo Metal",8000,"Full-HD");
+
+function nuevaCamara(nu,camaras){
+    nu.push(camaras);
 }
-    const productos = [
-        {id: 1, nombre:"Camara Hikvision",tipo: "Bullet",material: "Plastico",precio: 5500,resolucion: "HD",disponible: true},
-        {id: 2, nombre:"Camara Hikvision",tipo: "Bullet",material: "Metal",precio: 7500,resolucion: "HD",disponible: true},
-        {id: 3, nombre:"Camara Hikvision",tipo: "Domo",material: "Plastico",precio: 6500,resolucion: "HD",disponible: true},
-        {id: 4, nombre:"Camara Hikvision",tipo: "Domo",material: "Metal",precio: 7500,resolucion: "HD",disponible: true},
-       
-    ]   
 
-    // Arrays
+nuevaCamara(camara, nuevaCamara5);
 
-    const carrito = [];
+console.log(camara);
 
-    let sumarproducto = prompt("Agregar Producto");
+let carrito = [];
+
+let productos = prompt("¿Desea conocer nuestras Camaras? \n Ingrese si o no");
+
+while(productos !="si"&& productos !="no"){
+    alert("Ingrese una opcion valida");
+    productos = prompt("¿Desea una Camara? \n Ingrese si o no");
+}
+if(productos === "si"){
+    let mostrarCamaras = camara.map((producto)=> producto.nombre + " " + producto.tipo + " " + producto.precio + "$" + " "+ producto.resolucion);
+    alert(mostrarCamaras.join("\n"));  
+} else if (productos === "no"){
+    alert("Gracias, vuelva pronto!")
+}
+
+function filCamara(fil, filtro){
+    const filtrar = fil.filter((camara)=>{
+        return camara.nombre.includes(filtro)
+    })
+    return filtrar;
+}
+
+let queProducto = prompt("¿Que Camara Quiere? \n Puede ingresar h y el numero");
+
+console.log(filCamara(camara,queProducto));
 
 
 }
+
